@@ -1,0 +1,27 @@
+.wrapper {
+    max-width: 1334px;
+    padding: 0 15px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.body {
+    background: radial-gradient(hsl(214deg, 47%, 23%), hsl(237deg, 49%, 15%));
+    color: #FFF;
+    font-weight: 700;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+.body.modal-active{
+    overflow: hidden;
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,.5);
+    }
+}

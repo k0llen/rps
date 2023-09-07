@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <title>RockPaperScissors</title>
+</head>
+
+<body class="body">
+    <main>
+        <div class="wrapper">
+            <div class="top">
+                <div class="pic-block">
+                    <img src="img/logo.svg" alt="">
+                </div>
+                <div class="scores-block">
+                    <div class="scores-title">
+                        SCORE
+                    </div>
+                    <div class="scores-count"></div>
+                </div>
+            </div>
+            <div class="game">
+                <div class="buttons">
+                    <button class="btn btn-paper" data-name="paper" data-beat-by="scissors">
+                        <img src="img/icon-paper.svg" alt="paper">
+                    </button>
+                    <button class="btn btn-scissors" data-name="scissors" data-beat-by="rock">
+                        <img src="img/icon-scissors.svg" alt="scissors">
+                    </button>
+                    <button class="btn btn-rock" data-name="rock" data-beat-by="paper">
+                        <img src="img/icon-rock.svg" alt="rock">
+                    </button>
+                </div>
+                <div class="game-results">
+                    <div class="block block-you">
+                        <div class="text">YOU PICKED</div>
+                        <div class="place">
+                            <div class="empty"></div>
+                        </div>
+                    </div>
+                    <div class="block block-again">
+                        <div class="lose">YOU LOSE</div>
+                        <div class="win">YOU WIN</div>
+                        <div class="tie">TIE! TRY AGAIN</div>
+                        <button class="btn-again">PLAY AGAIN</button>
+                    </div>
+                    <div class="block block-house">
+                        <div class="text">THE HOUSE PICKED</div>
+                        <div class="place">
+                            <div class="empty"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="rules-btn">RULES</button>
+            <div class="rules-modal">
+                <div class="rules-modal-top">
+                    <div class="rules-modal-title">RULES</div>
+                    <div class="rules-modal-close">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+                            <path fill="#3B4262" fill-rule="evenodd" d="M16.97 0l2.122 2.121-7.425 7.425 7.425 7.425-2.121 2.12-7.425-7.424-7.425 7.425L0 16.97l7.425-7.425L0 2.121 2.121 0l7.425 7.425L16.971 0z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="rules-modal-rules">
+                    <img src="img/image-rules.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,322 @@
+.game {
+    padding-top: 60px;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+
+    .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 476px;
+        margin: 0 auto;
+        justify-content: space-between;
+        gap: 25px 70px;
+        background: url(../img/bg-triangle.svg) no-repeat center center;
+        /*         display: none; */
+    }
+
+    .btn {
+        padding: 50px;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 23px solid;
+        background: #FFF;
+        position: relative;
+        box-shadow: 0px 7px 6px 6px rgba(91, 90, 90, 0.25) inset;
+        transition: .3s all;
+
+        &:active {
+            transform: translateY(4px);
+        }
+
+        img {}
+
+        cursor: pointer;
+
+        &-rock {
+            margin: 0 auto;
+            border-color: hsl(349, 70%, 56%);
+            filter: drop-shadow(0 8px 0 hsl(349deg 75.79% 39.61%));
+
+            &:active {
+                border-color: hsl(349deg 75.79% 39.61%);
+                filter: drop-shadow(rgb(157, 8, 68) 0px 4px 0px);
+            }
+        }
+
+        &-paper {
+            border-color: hsl(230, 89%, 65%);
+            filter: drop-shadow(0 8px 0 hsl(230deg 67.11% 55.56%));
+
+            &:active {
+                border-color: hsl(230deg 67.11% 55.56%);
+                filter: drop-shadow(rgb(66, 68, 200) 0px 4px 0px);
+            }
+        }
+
+        &-scissors {
+            border-color: hsl(40, 84%, 53%);
+            filter: drop-shadow(0 8px 0 hsl(39deg 73.81% 44.59%));
+
+            &:active {
+                border-color: hsl(39deg 73.81% 44.59%);
+                filter: drop-shadow(0 5px 0 hsl(39deg, 79.81%, 37.59%));
+                ;
+            }
+        }
+    }
+
+    &-results {
+        font-size: 18px;
+        display: flex;
+        gap: 70px;
+        display: none;
+
+        .block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            
+            &-you, &-house{
+                &::after{
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    right: 50%;
+                    transform: translate(50%,-43%)scale(0);
+                    width: 700px;
+                    height: 700px;
+                    z-index: -1;
+                    background: url(../img/win-bg.svg) no-repeat center center;
+                    transition: .3s all;
+                    background-size: contain;
+                }
+            }
+
+            .text {
+                margin-bottom: 70px;
+            }
+
+            .place {
+                .empty {
+                    margin-top: 30px;
+                    width: 226px;
+                    height: 226px;
+                    border-radius: 50%;
+                    background: hsl(237deg, 49%, 15%);
+                    opacity: 0.4;
+                }
+            }
+
+            .picked-btn {
+                padding: 85px;
+                width: 292px;
+                height: 292px;
+                border-radius: 50%;
+                border: 34px solid;
+                background: #FFF;
+                position: relative;
+                box-shadow: 0px 7px 6px 6px rgba(91, 90, 90, 0.25) inset;
+                transition: .3s all;
+                animation-duration: .3s;
+                animation-name: scaling;
+
+                @keyframes scaling {
+                    from {
+                        transform: scale(0);
+                    }
+
+                    to {
+                        transform: scale(1);
+                    }
+                }
+
+            }
+
+            .picked-btn.rock {
+                border-color: hsl(349, 70%, 56%);
+                filter: drop-shadow(0 8px 0 hsl(349deg 75.79% 39.61%));
+            }
+
+            .picked-btn.paper {
+                border-color: hsl(230, 89%, 65%);
+                filter: drop-shadow(0 8px 0 hsl(230deg 67.11% 55.56%));
+            }
+
+            .picked-btn.scissors {
+                border-color: hsl(40, 84%, 53%);
+                filter: drop-shadow(0 8px 0 hsl(39deg 73.81% 44.59%));
+            }
+
+            &-again {
+                display: flex;
+                align-items: stretch;
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+                transition: .3s all;
+                transform: scale(0);
+                
+                .btn-again {
+                    margin-top: 25px;
+                    text-align: center;
+                    font-size: 13px;
+                    color: hsl(229, 25%, 31%);
+                    padding: 17px;
+                    border-radius: 8px;
+                    background: #FFF;
+                    cursor: pointer;
+                    transition: .3s all;
+
+                    &:hover {
+                        color: red;
+                    }
+                }
+            }
+
+            &-again.win {
+                .lose {
+                    display: none;
+                }
+
+                .win {
+                    display: block;
+                }
+
+                .tie {
+                    display: none;
+                }
+            }
+
+            &-again.lose {
+                .lose {
+                    display: block;
+                }
+
+                .win {
+                    display: none;
+                }
+
+                .tie {
+                    display: none;
+                }
+            }
+
+            &-again.tie {
+                .lose {
+                    display: none;
+                }
+
+                .win {
+                    display: none;
+                }
+
+                .tie {
+                    display: block;
+                }
+            }
+        }
+        .block.you-win{
+            &::after{
+                transform: translate(50%,-43%)scale(1);
+            }
+        }
+
+        .place.picked {
+            .empty {
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .game {
+        &-results{
+            grid-template-columns: repeat(2,1fr);
+            gap: 40px 10px;
+
+            .block {
+                &-again{
+                    order: 3;
+                    grid-column: span 2;
+                    font-size: 48px;
+                    align-items: center;
+
+                    .btn-again {
+                        max-width: 200px;
+                        width: 100%;
+                    }
+                }
+                &-you{
+                    order: 1;
+                }
+                &-house{
+                    order: 2;
+                }
+
+                &-you, &-house{
+                    flex-direction: column-reverse;
+                    gap: 30px;
+                }
+
+                .text{
+                    margin: 0;
+                }
+
+                .picked-btn {
+                    width: 130px;
+                    height: 130px;
+                    padding: 30px;
+                    border-width: 16px;
+                }
+
+                &::after {
+                    width: 300px;
+                    height: 300px;
+                    transform: translate(50%, -53%)scale(0);
+                }
+                .place{
+                    .empty {
+                        width: 100px;
+                        height: 100px;
+                    }
+                }
+            }
+            .block.you-win{
+                &::after{
+                    transform: translate(50%, -53%)scale(1);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .game {
+        .buttons {
+            .btn {
+                width: 170px;
+                height: 170px;
+                padding: 40px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .game {
+        .buttons {
+            gap: 12px;  
+            background-position-y: 30px;
+
+            .btn {
+                width: 130px;
+                height: 130px;
+                padding: 25px;
+            }
+        }
+    }
+}
