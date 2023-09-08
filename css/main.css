@@ -529,6 +529,7 @@ h1, h2, h3, h4, h5, h6 {
   .game .buttons {
     gap: 12px;
     background-position-y: 30px;
+    background-size: calc(100% - 50px);
   }
   .game .buttons .btn {
     width: 130px;

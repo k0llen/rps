@@ -311,7 +311,7 @@
         .buttons {
             gap: 12px;  
             background-position-y: 30px;
-
+            background-size: calc(100% - 50px);
             .btn {
                 width: 130px;
                 height: 130px;
